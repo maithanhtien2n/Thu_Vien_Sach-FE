@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết Tin tức</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pTU9fFTzAo4hyLcq0PvIp65gkHs5iwD+CT5Yv3eNqdnIu0v6ev3QbLKGQz6sNnarPIZIcMWh8jG8Y0bMvHMmAA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <!-- Header giống index.html -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-lg">
+      <div
+        class="container mx-auto px-6 flex items-center justify-between h-16"
+      >
+        <h1 class="text-2xl font-bold text-blue-600">Thư viện điện tử</h1>
+        <!-- Nav giống index.html ... -->
+      </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto py-12 px-4">
+      <nav class="text-sm mb-6">
+        <a href="index.html" class="text-blue-600 hover:underline">Trang chủ</a>
+        <span class="mx-2">/</span>
+        <a href="index.html#news" class="text-blue-600 hover:underline"
+          >Tin tức</a
+        >
+        <span class="mx-2">/</span>
+        <span id="breadcrumb-title" class="text-gray-600">Loading...</span>
+      </nav>
+
+      <article class="bg-white rounded-lg shadow p-6">
+        <h2 id="news-title" class="text-3xl font-bold mb-2">Tiêu đề tin tức</h2>
+        <div class="flex items-center text-gray-500 text-sm mb-4">
+          <span
+            id="news-date"
+            class="px-3 py-1 bg-gray-200 rounded-full"
+          ></span>
+          <span class="mx-2">•</span>
+          <span id="news-category"></span>
+        </div>
+        <img
+          id="news-image"
+          src=""
+          alt="Hình ảnh tin tức"
+          class="w-full h-64 object-cover rounded-lg mb-6"
+        />
+        <div id="news-content" class="prose prose-blue"></div>
+      </article>
+
+      <div class="mt-8 text-center">
+        <a
+          href="index.html#news"
+          class="inline-block px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+        >
+          ← Quay lại Tin tức
+        </a>
+      </div>
+    </main>
+
+    <!-- Footer giống index.html -->
+    <footer class="bg-gray-800 text-gray-400 py-6">
+      <div class="max-w-screen-xl mx-auto px-4 text-center">
+        <p>&copy; 2025 Thư viện điện tử. All rights reserved.</p>
+        <!-- social icons ... -->
+      </div>
+    </footer>
+
+    <script>
+      // Dữ liệu mẫu (thực tế bạn có thể fetch từ API)
+      const newsData = {
+        1: {
+          title: "Bổ sung 500+ đầu sách mới",
+          date: "15/03/2025",
+          category: "Thư viện",
+          image:
+            "https://cdnphoto.dantri.com.vn/1SbfIq67hTjguR3LFE6SqDlHsAU=/thumb_w/680/2024/01/31/toeic-1706678280027.jpg",
+          content: `
+            <p>Chúng tôi đã bổ sung hơn 500 đầu sách mới từ nhiều lĩnh vực: Khoa học, Văn học, Công nghệ,...</p>
+            <p>Đây là nỗ lực không ngừng để đem đến kho tàng tri thức phong phú cho bạn đọc.</p>
+          `,
+        },
+        2: {
+          title: "Ứng dụng đọc sách phiên bản mới",
+          date: "10/03/2025",
+          category: "Công nghệ",
+          image:
+            "https://cdn.tgdd.vn/2023/09/campaign/ung-dung-doc-sach-mien-phi-thumb-640x360.png",
+          content: `
+            <p>Phiên bản ứng dụng mới đem đến giao diện thân thiện hơn và nhiều tính năng hỗ trợ đọc sách.</p>
+            <ul>
+              <li>Tùy chọn theme sáng/tối, phông chữ dễ đọc</li>
+              <li>Đánh dấu trang, ghi chú trực tiếp</li>
+              <li>Đồng bộ đám mây</li>
+            </ul>
+          `,
+        },
+        3: {
+          title: "Ngày hội đọc sách 2025",
+          date: "05/03/2025",
+          category: "Sự kiện",
+          image:
+            "https://lh5.googleusercontent.com/proxy/lsTrBlOEP0TpJH0jL5hGrNvkMSP7lLCJsdDw2RbM4xLGoiMGdi7Yk0K1zCK3yIA--oNUUG3NdKbDZ-wFVKowvVMlIUczdsdxuetJT8XNZY-InRyBdI-W46Q",
+          content: `
+            <p>Ngày hội đọc sách thường niên năm 2025 sẽ diễn ra tại Trung tâm Hội nghị Quốc gia, Hà Nội.</p>
+            <p>Rất nhiều hoạt động thú vị: giao lưu tác giả, tọa đàm, góc sách thiếu nhi,…</p>
+          `,
+        },
+        4: {
+          title: "Sự kiện thường niên - Kết nối cộng đồng yêu sách",
+          date: "05/03/2025",
+          category: "Sự kiện",
+          image: "file:///D:/Thu_Vien_Sach-FE/sukiendocsach.avif",
+          content: `
+    <p>Sự kiện thường niên "Kết nối cộng đồng yêu sách" năm 2025 sẽ được tổ chức tại Trung tâm Hội nghị Quốc gia, Hà Nội vào ngày 5 tháng 3 năm 2025.</p>
+    <p>Chương trình nhằm tạo cầu nối giữa những người yêu sách trên toàn quốc, góp phần lan tỏa văn hóa đọc và khơi dậy đam mê sách trong cộng đồng.</p>
+    <p>Sự kiện bao gồm nhiều hoạt động hấp dẫn như: giao lưu với các tác giả nổi tiếng, tọa đàm chuyên đề về sách và giáo dục, khu vui chơi dành cho thiếu nhi, trưng bày và trao đổi sách quý hiếm.</p>
+  `,
+        },
+      };
+
+      // Lấy id từ URL
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      const data = newsData[id] || {};
+
+      // Điền dữ liệu lên trang
+      document.getElementById("news-title").textContent =
+        data.title || "Tin không tồn tại";
+      document.getElementById("breadcrumb-title").textContent =
+        data.title || "";
+      document.getElementById("news-date").textContent = data.date || "";
+      document.getElementById("news-category").textContent =
+        data.category || "";
+      document.getElementById("news-image").src = data.image || "";
+      document.getElementById("news-image").alt = data.title || "";
+      document.getElementById("news-content").innerHTML =
+        data.content || "<p>Không có nội dung.</p>";
+    </script>
+  </body>
+</html>
