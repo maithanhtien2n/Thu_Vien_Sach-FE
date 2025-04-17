@@ -73,27 +73,100 @@
     <!-- Main wrapper -->
     <div class="max-w-screen-xl mx-auto px-4">
       <!-- Hero -->
+      <!-- Thay thế phần Hero cũ bằng slider -->
       <section
-        id="home"
-        class="bg-cover bg-center rounded-lg overflow-hidden mt-8 h-72 md:h-96"
-        style="background-image: url('background-image.jpg')"
+        id="hero-slider"
+        class="relative mt-8 h-72 md:h-96 overflow-hidden rounded-lg"
       >
+        <!-- Danh sách slide -->
         <div
-          class="bg-black bg-opacity-50 h-full flex items-center justify-center"
+          class="slides-container h-full w-full flex transition-transform duration-500 ease-in-out"
         >
-          <div class="text-center text-white">
-            <h2
-              class="text-3xl md:text-5xl font-extrabold mb-2 animate-fadeInDown"
+          <!-- Slide 1 -->
+          <div class="slide relative min-w-full h-full">
+            <img
+              src="https://visio.edu.vn/wp-content/uploads/2021/10/Banner-sa%CC%81ch_1920_tinified.jpg"
+              alt="Slide 1"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center"
             >
-              Chào mừng đến với Thư viện điện tử
-            </h2>
-            <p
-              class="text-md md:text-lg animate-fadeInUp"
-              style="animation-delay: 0.5s"
-            >
-              Khám phá hàng nghìn đầu sách hấp dẫn mọi lúc, mọi nơi.
-            </p>
+              <div class="text-center text-white px-4">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-2">
+                  Chào mừng đến Thư viện điện tử
+                </h2>
+                <p class="text-md md:text-lg">
+                  Khám phá tri thức không giới hạn
+                </p>
+              </div>
+            </div>
           </div>
+
+          <!-- Slide 2 -->
+          <div class="slide relative min-w-full h-full">
+            <img
+              src="https://biowish.vn/wp-content/uploads/2017/08/resources-banner-1.jpg"
+              alt="Slide 2"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+            >
+              <div class="text-center text-white px-4">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-2">
+                  Sách mới cập nhật hàng tuần
+                </h2>
+                <p class="text-md md:text-lg">
+                  Đón đầu xu hướng đọc sách hiện đại
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="slide relative min-w-full h-full">
+            <img
+              src="https://png.pngtree.com/thumb_back/fw800/background/20240913/pngtree-stack-of-books-in-a-library-with-wooden-shelves-and-table-image_16178964.jpg"
+              alt="Slide 3"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+            >
+              <div class="text-center text-white px-4">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-2">
+                  Tham gia cộng đồng đọc sách
+                </h2>
+                <p class="text-md md:text-lg">
+                  Kết nối và chia sẻ cùng độc giả
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation buttons -->
+        <button
+          class="absolute top-1/2 left-4 transform -translate-y-1/2 text-white text-3xl hover:text-blue-300 transition"
+          id="prev-slide"
+        >
+          ❮
+        </button>
+        <button
+          class="absolute top-1/2 right-4 transform -translate-y-1/2 text-white text-3xl hover:text-blue-300 transition"
+          id="next-slide"
+        >
+          ❯
+        </button>
+
+        <!-- Pagination dots -->
+        <div
+          class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2"
+        >
+          <div class="dot w-3 h-3 rounded-full bg-white cursor-pointer"></div>
+          <div class="dot w-3 h-3 rounded-full bg-white cursor-pointer"></div>
+          <div class="dot w-3 h-3 rounded-full bg-white cursor-pointer"></div>
         </div>
       </section>
 
@@ -227,6 +300,64 @@
 
     <!-- Scripts -->
     <script>
+      // Xử lý slider
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".slide");
+      const dots = document.querySelectorAll(".dot");
+      const slider = document.querySelector(".slides-container");
+
+      function showSlide(n) {
+        slides.forEach((slide, index) => {
+          slide.classList.toggle("active", index === n);
+        });
+
+        dots.forEach((dot, index) => {
+          dot.classList.toggle("bg-blue-500", index === n);
+          dot.classList.toggle("bg-white", index !== n);
+        });
+
+        slider.style.transform = `translateX(-${n * 100}%)`;
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      }
+
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+      }
+
+      // Tự động chuyển slide mỗi 5s
+      let autoSlide = setInterval(nextSlide, 5000);
+
+      // Thêm sự kiện click cho nút
+      document.getElementById("next-slide").addEventListener("click", () => {
+        clearInterval(autoSlide);
+        nextSlide();
+        autoSlide = setInterval(nextSlide, 5000);
+      });
+
+      document.getElementById("prev-slide").addEventListener("click", () => {
+        clearInterval(autoSlide);
+        prevSlide();
+        autoSlide = setInterval(nextSlide, 5000);
+      });
+
+      // Thêm sự kiện click cho dots
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          clearInterval(autoSlide);
+          currentSlide = index;
+          showSlide(currentSlide);
+          autoSlide = setInterval(nextSlide, 5000);
+        });
+      });
+
+      // Khởi tạo slide đầu tiên
+      showSlide(0);
+
       // Dữ liệu mẫu sách
       const books = [
         {
@@ -346,6 +477,21 @@
 
     <!-- Animations -->
     <style>
+      /* Animation cho slide */
+      .slides-container {
+        transition: transform 0.5s ease-in-out;
+      }
+
+      /* Ẩn slider khi chưa khởi tạo */
+      .slide {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      .slide.active {
+        opacity: 1;
+      }
+
       @keyframes fadeInDown {
         from {
           opacity: 0;
