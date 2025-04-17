@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ hàng</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pTU9fFTzAo4hyLcq0PvIp65gkHs5iwD+CT5Yv3eNqdnIu0v6ev3QbLKGQz6sNnarPIZIcMWh8jG8Y0bMvHMmAA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <!-- Header full-width -->
+    <header class="bg-white shadow sticky top-0 z-50">
+      <div
+        class="max-w-screen-xl mx-auto px-4 flex items-center justify-between h-16"
+      >
+        <h1 class="text-2xl font-bold text-blue-600">Thư viện điện tử</h1>
+        <nav>
+          <ul class="flex space-x-6">
+            <li>
+              <a href="index.html#home" class="hover:text-blue-600"
+                >Trang chủ</a
+              >
+            </li>
+            <li>
+              <a href="index.html#library" class="hover:text-blue-600"
+                >Thư viện</a
+              >
+            </li>
+            <li>
+              <a href="index.html#news" class="hover:text-blue-600">Tin tức</a>
+            </li>
+            <li>
+              <a href="index.html#about" class="hover:text-blue-600"
+                >Giới thiệu</a
+              >
+            </li>
+            <li>
+              <a href="index.html#contact" class="hover:text-blue-600"
+                >Liên hệ</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="relative" style="z-index: 999999">
+          <a
+            href="cart.html"
+            class="text-gray-600 hover:text-blue-600 transition"
+          >
+            <i
+              class="fa-solid fa-cart-shopping px-3 py-2"
+              style="border: 1px solid #ddd; border-radius: 3rem"
+              >Giỏ hàng</i
+            >
+            <span
+              id="cart-count"
+              class="absolute -top-2 bg-red-500 text-white text-xs rounded-full px-2"
+              style="right: -0.5rem"
+              >0</span
+            >
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="max-w-screen-xl mx-auto px-4 py-10">
+      <h2 class="text-3xl font-semibold mb-6">Giỏ hàng của bạn</h2>
+      <div id="cart-items" class="space-y-4"></div>
+      <div id="total-price" class="text-xl font-bold mt-6"></div>
+
+      <!-- Payment Methods -->
+      <section
+        id="payment-methods"
+        class="mt-10 bg-white p-6 rounded-lg shadow-md"
+      >
+        <h3 class="text-2xl font-semibold mb-4">Chọn phương thức thanh toán</h3>
+        <form id="payment-form" class="space-y-4">
+          <label class="flex items-center"
+            ><input
+              type="radio"
+              name="payment"
+              value="bank"
+              required
+              class="mr-2"
+            />
+            Chuyển khoản ngân hàng</label
+          >
+          <label class="flex items-center"
+            ><input type="radio" name="payment" value="momo" class="mr-2" /> Ví
+            Momo</label
+          >
+          <label class="flex items-center"
+            ><input type="radio" name="payment" value="zalopay" class="mr-2" />
+            ZaloPay</label
+          >
+          <button
+            type="submit"
+            class="mt-4 px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
+          >
+            Xác nhận thanh toán
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <!-- Footer full-width -->
+    <footer class="bg-gray-800 text-gray-400 py-6">
+      <div class="max-w-screen-xl mx-auto px-4 text-center">
+        <p>&copy; 2025 Thư viện điện tử. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      function renderCart() {
+        const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+        const container = document.getElementById("cart-items");
+        const totalEl = document.getElementById("total-price");
+        container.innerHTML = "";
+        let total = 0;
+        if (cartItems.length === 0) {
+          container.innerHTML = '<p class="text-gray-600">Giỏ hàng trống.</p>';
+          totalEl.innerHTML = "";
+          return;
+        }
+        cartItems.forEach((item) => {
+          const price = parseInt(item.price.toString().replace(/\D/g, ""));
+          total += price;
+          const card = document.createElement("div");
+          card.className =
+            "flex items-center bg-white p-4 rounded-lg shadow-md";
+          card.innerHTML = `
+          <img src="${item.img}" alt="${item.title}" class="w-20 h-24 object-cover rounded">
+          <div class="ml-4 flex-1">
+            <h4 class="text-lg font-semibold">${item.title}</h4>
+            <p class="text-gray-600">Giá: <strong>${item.price}</strong></p>
+          </div>
+          <button class="remove-btn px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition" data-title="${item.title}">Xóa</button>
+        `;
+          container.appendChild(card);
+        });
+        totalEl.innerHTML = `Tổng cộng: <strong>${total.toLocaleString()}đ</strong>`;
+        document.getElementById("cart-count").textContent = cartItems.length;
+        document.querySelectorAll(".remove-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const title = btn.getAttribute("data-title");
+            const updated = JSON.parse(localStorage.getItem("cart")).filter(
+              (i) => i.title !== title
+            );
+            localStorage.setItem("cart", JSON.stringify(updated));
+            renderCart();
+          });
+        });
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        renderCart();
+        document
+          .getElementById("payment-form")
+          .addEventListener("submit", (e) => {
+            e.preventDefault();
+            const method = document.querySelector(
+              'input[name="payment"]:checked'
+            ).value;
+            alert(`Bạn đã chọn phương thức thanh toán: ${method}`);
+          });
+      });
+    </script>
+  </body>
+</html>

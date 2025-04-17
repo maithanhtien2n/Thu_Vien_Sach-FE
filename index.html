@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thư viện điện tử</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pTU9fFTzAo4hyLcq0PvIp65gkHs5iwD+CT5Yv3eNqdnIu0v6ev3QbLKGQz6sNnarPIZIcMWh8jG8Y0bMvHMmAA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <!-- Header full-width -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <div
+        class="max-w-screen-xl mx-auto px-4 flex items-center justify-between h-16"
+      >
+        <h1 class="text-2xl font-bold text-blue-600">Thư viện điện tử</h1>
+        <nav>
+          <ul class="flex space-x-6">
+            <li>
+              <a href="#home" class="hover:text-blue-600 transition"
+                >Trang chủ</a
+              >
+            </li>
+            <li>
+              <a href="#library" class="hover:text-blue-600 transition"
+                >Thư viện</a
+              >
+            </li>
+            <li>
+              <a href="#news" class="hover:text-blue-600 transition">Tin tức</a>
+            </li>
+            <li>
+              <a href="#about" class="hover:text-blue-600 transition"
+                >Giới thiệu</a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="hover:text-blue-600 transition"
+                >Liên hệ</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="relative" style="z-index: 999999">
+          <a
+            href="cart.html"
+            class="text-gray-600 hover:text-blue-600 transition"
+          >
+            <i
+              class="fa-solid fa-cart-shopping px-3 py-2"
+              style="border: 1px solid #ddd; border-radius: 3rem"
+              >Giỏ hàng</i
+            >
+            <span
+              id="cart-count"
+              class="absolute -top-2 bg-red-500 text-white text-xs rounded-full px-2"
+              style="right: -0.5rem"
+              >0</span
+            >
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main wrapper -->
+    <div class="max-w-screen-xl mx-auto px-4">
+      <!-- Hero -->
+      <section
+        id="home"
+        class="bg-cover bg-center rounded-lg overflow-hidden mt-8 h-72 md:h-96"
+        style="background-image: url('background-image.jpg')"
+      >
+        <div
+          class="bg-black bg-opacity-50 h-full flex items-center justify-center"
+        >
+          <div class="text-center text-white">
+            <h2
+              class="text-3xl md:text-5xl font-extrabold mb-2 animate-fadeInDown"
+            >
+              Chào mừng đến với Thư viện điện tử
+            </h2>
+            <p
+              class="text-md md:text-lg animate-fadeInUp"
+              style="animation-delay: 0.5s"
+            >
+              Khám phá hàng nghìn đầu sách hấp dẫn mọi lúc, mọi nơi.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tin tức -->
+      <section id="news" class="py-7">
+        <h3 class="text-3xl font-semibold text-gray-800 mb-6">
+          Tin tức mới nhất
+        </h3>
+        <ul class="space-y-4">
+          <li class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+            <span class="font-semibold text-blue-600">15/03/2025:</span> Thư
+            viện bổ sung hơn 500 đầu sách mới.
+          </li>
+          <li class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+            <span class="font-semibold text-blue-600">10/03/2025:</span> Ra mắt
+            ứng dụng đọc sách trực tuyến.
+          </li>
+          <li class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+            <span class="font-semibold text-blue-600">05/03/2025:</span> Sự kiện
+            "Ngày hội đọc sách" sắp diễn ra.
+          </li>
+        </ul>
+        <div class="mt-8">
+          <img
+            src="sukiendocsach.avif"
+            alt="Sự kiện đọc sách"
+            class="w-full rounded-lg shadow-md"
+            style="height: 30rem; object-fit: cover"
+          />
+        </div>
+      </section>
+
+      <!-- Giới thiệu -->
+      <section id="about" class="py-7">
+        <h3 class="text-3xl font-semibold text-gray-800 mb-4">Giới thiệu</h3>
+        <p class="mb-4">
+          Thư viện điện tử mang đến kho sách điện tử phong phú, đa dạng thể
+          loại, hỗ trợ đọc trên mọi thiết bị.
+        </p>
+        <ul class="list-disc list-inside space-y-2">
+          <li>Hơn 10.000 đầu sách chất lượng.</li>
+          <li>Đọc sách mọi lúc, mọi nơi.</li>
+          <li>Cập nhật sách mới liên tục.</li>
+          <li>Các sự kiện văn hóa đọc hấp dẫn.</li>
+        </ul>
+        <div class="mt-6">
+          <img
+            src="thuviendientu.png"
+            alt="Thư viện điện tử"
+            class="w-full rounded-lg shadow-md"
+            style="height: 30rem; object-fit: cover"
+          />
+        </div>
+      </section>
+
+      <!-- Thư viện sách -->
+      <section id="library" class="py-7">
+        <h3 class="text-3xl font-semibold text-gray-800 mb-6">Danh mục sách</h3>
+        <div id="filter-buttons" class="flex flex-wrap gap-4 mb-8">
+          <button
+            data-cat="all"
+            class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+          >
+            Tất cả
+          </button>
+          <button
+            data-cat="Khoa học"
+            class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition"
+          >
+            Khoa học
+          </button>
+          <button
+            data-cat="Tiểu thuyết"
+            class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition"
+          >
+            Tiểu thuyết
+          </button>
+          <button
+            data-cat="Công nghệ"
+            class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition"
+          >
+            Công nghệ
+          </button>
+        </div>
+        <div
+          id="book-grid"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        >
+          <!-- JS render sách -->
+        </div>
+      </section>
+
+      <!-- Liên hệ -->
+      <section
+        id="contact"
+        class="bg-white rounded-lg shadow-md mb-16 py-16 px-8 text-center"
+      >
+        <h3 class="text-3xl font-semibold text-gray-800 mb-4">
+          Liên hệ với chúng tôi
+        </h3>
+        <p>
+          Email:
+          <a href="mailto:support@thuviendientu.com" class="text-blue-600"
+            >support@thuviendientu.com</a
+          >
+        </p>
+        <p>
+          Hotline:
+          <a href="tel:0123456789" class="text-blue-600">0123 456 789</a>
+        </p>
+      </section>
+    </div>
+
+    <!-- Footer full-width -->
+    <footer class="bg-gray-800 text-gray-400 py-6">
+      <div class="max-w-screen-xl mx-auto px-4 text-center">
+        <p>&copy; 2025 Thư viện điện tử. All rights reserved.</p>
+        <div class="flex justify-center space-x-4 mt-4">
+          <a href="#" class="hover:text-white"
+            ><i class="fab fa-facebook fa-lg"></i
+          ></a>
+          <a href="#" class="hover:text-white"
+            ><i class="fab fa-twitter fa-lg"></i
+          ></a>
+          <a href="#" class="hover:text-white"
+            ><i class="fab fa-instagram fa-lg"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Dữ liệu mẫu sách
+      const books = [
+        {
+          title: "Cuốn sách A",
+          author: "Nguyễn Huỳnh Hoà",
+          genre: "Khoa học",
+          price: 100000,
+          img: "sachkhoahoc1.jpg",
+          status: "open",
+        },
+        {
+          title: "Cuốn sách D",
+          author: "Phạm Văn Tuấn",
+          genre: "Khoa học",
+          price: 40000,
+          img: "sachkhoahoc.jpg",
+          status: "soldout",
+        },
+        {
+          title: "Cuốn sách B",
+          author: "Trần Văn Hưng",
+          genre: "Tiểu thuyết",
+          price: 80000,
+          img: "sachtieuthuyet.jpg",
+          status: "open",
+        },
+        {
+          title: "Cuốn sách E",
+          author: "Đỗ Văn Khá",
+          genre: "Tiểu thuyết",
+          price: 69999,
+          img: "sachthieuthuyet2.jpg",
+          status: "open",
+        },
+        {
+          title: "Cuốn sách C",
+          author: "Lê Văn Hoà",
+          genre: "Công nghệ",
+          price: 0,
+          img: "sachcongnghe.jpg",
+          status: "maintenance",
+        },
+        {
+          title: "Cuốn sách F",
+          author: "Trần Thị Ngọc",
+          genre: "Công nghệ",
+          price: 30000,
+          img: "sachcongnghe2.jpg",
+          status: "open",
+        },
+      ];
+
+      const bookGrid = document.getElementById("book-grid");
+      const templateCard = `<div class="card bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col">
+      <img class="rounded-t-lg h-48 object-cover" src="{{img}}" alt="{{title}}">
+      <div class="p-4 flex-1 flex flex-col">
+        <h4 class="text-lg font-semibold mb-2">{{title}}</h4>
+        <p class="text-sm text-gray-600 mb-1"><span class="font-medium">Tác giả:</span> {{author}}</p>
+        <p class="text-sm text-gray-600 mb-1"><span class="font-medium">Thể loại:</span> {{genre}}</p>
+        <p class="text-sm text-gray-600 mb-4"><span class="font-medium">Giá:</span> {{price}}₫</p>
+        <button class="mt-auto px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition buy-btn">Mua ngay</button>
+      </div>
+    </div>`;
+
+      const filters = document.querySelectorAll("#filter-buttons button");
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      function renderBooks(category = "all") {
+        bookGrid.innerHTML = "";
+        books.forEach((book) => {
+          if (category === "all" || book.genre === category) {
+            let card = templateCard
+              .replace(/{{img}}/g, book.img)
+              .replace(/{{title}}/g, book.title)
+              .replace(/{{author}}/g, book.author)
+              .replace(/{{genre}}/g, book.genre)
+              .replace(/{{price}}/g, book.price.toLocaleString());
+            const div = document.createElement("div");
+            div.innerHTML = card;
+            const btn = div.querySelector(".buy-btn");
+            if (book.status !== "open") {
+              btn.disabled = true;
+              btn.textContent =
+                book.status === "soldout" ? "Hết hàng" : "Bảo trì";
+              btn.classList.replace("bg-green-600", "bg-gray-400");
+            } else {
+              btn.addEventListener("click", () => addToCart(book));
+            }
+            bookGrid.appendChild(div.firstChild);
+          }
+        });
+      }
+
+      function addToCart(book) {
+        cart.push(book);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        document.getElementById("cart-count").textContent = cart.length;
+        alert(`Đã thêm "${book.title}" vào giỏ hàng!`);
+      }
+
+      filters.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filters.forEach(
+            (b) =>
+              b.classList.replace("bg-blue-600", "bg-gray-200") &&
+              b.classList.replace("text-white", "text-gray-800")
+          );
+          btn.classList.replace("bg-gray-200", "bg-blue-600");
+          btn.classList.replace("text-gray-800", "text-white");
+          renderBooks(btn.getAttribute("data-cat"));
+        });
+      });
+
+      document.getElementById("cart-count").textContent = cart.length;
+      renderBooks();
+    </script>
+
+    <!-- Animations -->
+    <style>
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fadeInDown {
+        animation: fadeInDown 1s ease-out forwards;
+      }
+      .animate-fadeInUp {
+        animation: fadeInUp 1s ease-out forwards;
+      }
+    </style>
+  </body>
+</html>
