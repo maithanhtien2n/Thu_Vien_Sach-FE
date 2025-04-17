@@ -458,7 +458,8 @@
             </p>
 
             <a
-              href="#subscribe"
+              href="javascript:void(0)"
+              onclick="showSubscribe()"
               class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-lg transition"
             >
               Đăng ký ngay
@@ -476,7 +477,7 @@
         </div>
       </section>
 
-      <section id="subscribe" class="py-20 bg-white">
+      <section id="subscribe" class="py-20 bg-white hidden">
         <div class="container mx-auto px-4 max-w-2xl">
           <div class="bg-blue-50 p-8 rounded-2xl shadow-lg">
             <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">
@@ -607,6 +608,20 @@
 
     <!-- Scripts -->
     <script>
+      function showSubscribe() {
+        const section = document.getElementById("subscribe");
+        section.classList.remove("hidden");
+
+        // Tính vị trí của section và cuộn lên một chút (ví dụ: 100px)
+        const offset =
+          section.getBoundingClientRect().top + window.scrollY - 130;
+
+        window.scrollTo({
+          top: offset,
+          behavior: "smooth",
+        });
+      }
+
       document
         .getElementById("registerForm")
         .addEventListener("submit", function (e) {
