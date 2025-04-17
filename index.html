@@ -17,56 +17,95 @@
   </head>
   <body class="bg-gray-100 text-gray-800">
     <!-- Header full-width -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-lg">
       <div
-        class="max-w-screen-xl mx-auto px-4 flex items-center justify-between h-16"
+        class="container mx-auto px-6 md:px-4 lg:px-6 flex items-center justify-between h-16"
       >
+        <!-- Logo / Title -->
         <h1 class="text-2xl font-bold text-blue-600">Thư viện điện tử</h1>
-        <nav>
+
+        <!-- Navigation -->
+        <nav class="hidden md:block">
           <ul class="flex space-x-6">
             <li>
-              <a href="#home" class="hover:text-blue-600 transition"
-                >Trang chủ</a
+              <a
+                href="#home"
+                class="text-gray-700 hover:text-blue-600 transition-colors duration-200"
               >
+                Trang chủ
+              </a>
             </li>
             <li>
-              <a href="#library" class="hover:text-blue-600 transition"
-                >Thư viện</a
+              <a
+                href="#library"
+                class="text-gray-700 hover:text-blue-600 transition-colors duration-200"
               >
+                Thư viện
+              </a>
             </li>
             <li>
-              <a href="#news" class="hover:text-blue-600 transition">Tin tức</a>
+              <a
+                href="#news"
+                class="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              >
+                Tin tức
+              </a>
             </li>
             <li>
-              <a href="#about" class="hover:text-blue-600 transition"
-                >Giới thiệu</a
+              <a
+                href="#about"
+                class="text-gray-700 hover:text-blue-600 transition-colors duration-200"
               >
+                Giới thiệu
+              </a>
             </li>
             <li>
-              <a href="#contact" class="hover:text-blue-600 transition"
-                >Liên hệ</a
+              <a
+                href="#contact"
+                class="text-gray-700 hover:text-blue-600 transition-colors duration-200"
               >
+                Liên hệ
+              </a>
             </li>
           </ul>
         </nav>
-        <div class="relative" style="z-index: 999999">
+
+        <!-- Cart -->
+        <div class="relative">
           <a
             href="cart.html"
-            class="text-gray-600 hover:text-blue-600 transition"
+            class="flex items-center text-gray-600 hover:text-blue-600 transition-colors duration-200"
           >
-            <i
-              class="fa-solid fa-cart-shopping px-3 py-2"
-              style="border: 1px solid #ddd; border-radius: 3rem"
-              >Giỏ hàng</i
-            >
+            <i class="fa-solid fa-cart-shopping text-xl"></i>
+            <span class="ml-2 font-medium">Giỏ hàng</span>
             <span
               id="cart-count"
-              class="absolute -top-2 bg-red-500 text-white text-xs rounded-full px-2"
-              style="right: -0.5rem"
+              class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
               >0</span
             >
           </a>
         </div>
+
+        <!-- Mobile menu button -->
+        <button
+          class="md:hidden ml-4 text-gray-600 hover:text-blue-600 transition-colors duration-200 focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
       </div>
     </header>
 
@@ -171,31 +210,149 @@
       </section>
 
       <!-- Tin tức -->
-      <section id="news" class="py-7">
-        <h3 class="text-3xl font-semibold text-gray-800 mb-6">
-          Tin tức mới nhất
-        </h3>
-        <ul class="space-y-4">
-          <li class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
-            <span class="font-semibold text-blue-600">15/03/2025:</span> Thư
-            viện bổ sung hơn 500 đầu sách mới.
-          </li>
-          <li class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
-            <span class="font-semibold text-blue-600">10/03/2025:</span> Ra mắt
-            ứng dụng đọc sách trực tuyến.
-          </li>
-          <li class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
-            <span class="font-semibold text-blue-600">05/03/2025:</span> Sự kiện
-            "Ngày hội đọc sách" sắp diễn ra.
-          </li>
-        </ul>
-        <div class="mt-8">
-          <img
-            src="sukiendocsach.avif"
-            alt="Sự kiện đọc sách"
-            class="w-full rounded-lg shadow-md"
-            style="height: 30rem; object-fit: cover"
-          />
+      <section id="news" class="py-12">
+        <div class="max-w-screen-xl mx-auto px-4">
+          <h3
+            class="text-3xl font-semibold text-gray-800 mb-8 text-center md:text-left"
+          >
+            Tin tức nổi bật
+            <span
+              class="block w-16 h-1 bg-blue-600 mt-2 mx-auto md:mx-0"
+            ></span>
+          </h3>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Danh sách tin tức -->
+            <div class="space-y-6">
+              <!-- Tin tức 1 -->
+              <article
+                class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
+                <div class="p-6 flex items-start gap-4">
+                  <div class="flex-shrink-0">
+                    <div
+                      class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center"
+                    >
+                      <i class="fas fa-book-open text-blue-600 text-lg"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-2 mb-2">
+                      <span
+                        class="px-3 py-1 bg-blue-100 text-blue-600 text-sm rounded-full"
+                        >15/03/2025</span
+                      >
+                      <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
+                      <span class="text-gray-500 text-sm">Thư viện</span>
+                    </div>
+                    <h4
+                      class="text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors"
+                    >
+                      Bổ sung 500+ đầu sách mới
+                    </h4>
+                    <p class="text-gray-600">
+                      Nâng cao chất lượng dịch vụ với hàng trăm đầu sách thuộc
+                      nhiều lĩnh vực khác nhau...
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Tin tức 2 -->
+              <article
+                class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
+                <div class="p-6 flex items-start gap-4">
+                  <div class="flex-shrink-0">
+                    <div
+                      class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center"
+                    >
+                      <i class="fas fa-mobile-alt text-green-600 text-lg"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-2 mb-2">
+                      <span
+                        class="px-3 py-1 bg-green-100 text-green-600 text-sm rounded-full"
+                        >10/03/2025</span
+                      >
+                      <span class="w-2 h-2 bg-green-600 rounded-full"></span>
+                      <span class="text-gray-500 text-sm">Công nghệ</span>
+                    </div>
+                    <h4
+                      class="text-xl font-semibold mb-2 group-hover:text-green-600 transition-colors"
+                    >
+                      Ứng dụng đọc sách phiên bản mới
+                    </h4>
+                    <p class="text-gray-600">
+                      Trải nghiệm đọc sách đỉnh cao với giao diện mới và nhiều
+                      tính năng ưu việt...
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Tin tức 3 -->
+              <article
+                class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
+                <div class="p-6 flex items-start gap-4">
+                  <div class="flex-shrink-0">
+                    <div
+                      class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center"
+                    >
+                      <i
+                        class="fas fa-calendar-check text-purple-600 text-lg"
+                      ></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-2 mb-2">
+                      <span
+                        class="px-3 py-1 bg-purple-100 text-purple-600 text-sm rounded-full"
+                        >05/03/2025</span
+                      >
+                      <span class="w-2 h-2 bg-purple-600 rounded-full"></span>
+                      <span class="text-gray-500 text-sm">Sự kiện</span>
+                    </div>
+                    <h4
+                      class="text-xl font-semibold mb-2 group-hover:text-purple-600 transition-colors"
+                    >
+                      Ngày hội đọc sách 2025
+                    </h4>
+                    <p class="text-gray-600">
+                      Chuỗi sự kiện đặc biệt với nhiều hoạt động hấp dẫn dành
+                      cho cộng đồng yêu sách...
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Hình ảnh sự kiện -->
+            <div
+              class="relative rounded-xl overflow-hidden shadow-lg h-full min-h-[400px]"
+            >
+              <img
+                src="sukiendocsach.avif"
+                alt="Sự kiện đọc sách"
+                class="w-full h-full object-cover absolute inset-0"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end p-6"
+              >
+                <div class="text-white">
+                  <h4 class="text-2xl font-bold mb-2">Sự kiện thường niên</h4>
+                  <p class="text-lg">Kết nối cộng đồng yêu sách</p>
+                  <button
+                    class="mt-4 px-6 py-2 bg-white text-blue-600 rounded-full font-semibold hover:bg-blue-50 transition-colors"
+                  >
+                    Xem thêm
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
