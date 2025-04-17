@@ -476,6 +476,63 @@
         </div>
       </section>
 
+      <section id="subscribe" class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-2xl">
+          <div class="bg-blue-50 p-8 rounded-2xl shadow-lg">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">
+              Đăng Ký Thành Viên
+            </h2>
+            <p class="text-gray-700 mb-8 text-center">
+              Tạo tài khoản để bắt đầu hành trình đọc sách không giới hạn cùng
+              chúng tôi.
+            </p>
+
+            <!-- Thông báo đăng ký thành công -->
+            <div
+              id="successMessage"
+              class="hidden mb-6 p-4 rounded-lg bg-green-100 text-green-800 text-center font-medium"
+            >
+              🎉 Đăng ký thành công!
+            </div>
+
+            <form id="registerForm" class="space-y-6">
+              <div>
+                <label class="block text-gray-700 font-medium mb-2" for="name">
+                  Họ và tên
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+
+              <div>
+                <label class="block text-gray-700 font-medium mb-2" for="email">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+
+              <div class="text-center">
+                <button
+                  type="submit"
+                  class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition"
+                >
+                  Đăng ký
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
       <!-- Thư viện sách -->
       <section id="library" class="py-7">
         <h3 class="text-3xl font-semibold text-gray-800 mb-6">Danh mục sách</h3>
@@ -554,6 +611,18 @@
 
     <!-- Scripts -->
     <script>
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Ngăn reload trang
+
+          // Hiển thị thông báo thành công
+          document.getElementById("successMessage").classList.remove("hidden");
+
+          // Optionally: reset form
+          e.target.reset();
+        });
+
       // Xử lý slider
       let currentSlide = 0;
       const slides = document.querySelectorAll(".slide");
